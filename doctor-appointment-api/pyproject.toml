@@ -1,0 +1,29 @@
+[project]
+name = "doctor-appointment-api"
+version = "0.1.0"
+description = "FastAPI backend for a doctor appointment booking system"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi[standard]>=0.115.0",
+  "sqlalchemy>=2.0.0",
+  "psycopg[binary]>=3.2.0",
+  "pydantic-settings>=2.6.0",
+  "alembic>=1.14.0",
+  "pwdlib[argon2]>=0.2.1",
+  "PyJWT>=2.10.0",
+  "email-validator>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "httpx>=0.27.0",
+  "ruff>=0.8.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

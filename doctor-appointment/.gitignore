@@ -11,4 +11,5 @@ dist/
 build/
 *.egg-info/
 .idea/
-.vscode/
+.vscode/.venv/
+venv/

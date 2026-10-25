@@ -3,17 +3,9 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
+from app.api.v1 import heath_routes
 
 app = FastAPI(title="Doctor Appointment API")
 
 
-@app.get("/health")
-def health_check():
-    return {"status": "ok"}
-
-
-@app.get("/health/db")
-def database_health(db: Session = Depends(get_db)):
-    db.execute(text("SELECT 1"))
-
-    return {"status": "ok", "database": "connected"}
+app.include_router(heath_routes.router)
